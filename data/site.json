@@ -4,14 +4,15 @@
   "affiliation": "Mathematical Institute, University of Oxford",
   "location": "Oxford, UK",
   "email": "",
-  "portrait": "assets/photo.jpg",
   "links": {
     "CV": "assets/cv.pdf",
     "Google Scholar": "https://scholar.google.com/citations?hl=en&user=1CoCLEoAAAAJ",
-    "INSPIRE-HEP": "https://inspirehep.net/authors/1718074",
-    "ORCID": "https://orcid.org/0000-0001-7728-1873",
-    "arXiv": "",
-    "GitHub": ""
+    "ORCID": "",
+    "arXiv": "https://arxiv.org/search/?searchtype=author&query=Wen%2C+R",
+    "GitHub": "",
+    "X": "",
+    "LinkedIn": "",
+    "INSPIRE-HEP": "https://inspirehep.net/authors/1718074"
   },
   "keywords": [
     "Categorical symmetries",
@@ -21,7 +22,9 @@
   ],
   "about": [
     "I work at the intersection of mathematical physics and higher category theory, with an emphasis on categorical symmetries and their applications to topological and gapless phases of matter.",
-    "My research connects extended TQFT, fusion (higher) categories, and symmetry-enriched topological orders, including generalized (non-invertible / higher-form) symmetries."
+    "My research connects extended TQFT, fusion (higher) categories, and symmetry-enriched topological orders, including antilinear and generalized (non-invertible / higher-form) symmetries."
   ],
-  "notice": "Tip: edit data/*.json and push — the site updates automatically. Publications can be auto-updated via GitHub Actions (see README)."
+  "notice": "This site is a lightweight static page. Update the JSON files in /data and push to publish.",
+  "scholar_user": "1CoCLEoAAAAJ",
+  "inspire_author_id": "1718074"
 }

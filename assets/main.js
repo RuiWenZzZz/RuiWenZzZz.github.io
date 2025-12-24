@@ -115,6 +115,7 @@ function renderSite(site){
 }
 
 function renderPublications(pubs){
+  // sort
   pubs.sort((a,b) => (b.year ?? 0) - (a.year ?? 0));
 
   const years = [...new Set(pubs.map(p => p.year).filter(Boolean))];
@@ -195,6 +196,7 @@ function renderPublications(pubs){
 }
 
 function renderTalks(talks){
+  // sort by date desc (past first) but keep stable for empties
   talks.sort((a,b) => normalize(b.date).localeCompare(normalize(a.date)));
 
   const list = $("#talk-list");
@@ -229,7 +231,10 @@ function renderTalks(talks){
 
       const meta = document.createElement("p");
       meta.className = "item-meta";
-      const parts = [t.date, t.where].filter(Boolean);
+      const parts = [
+        t.date,
+        t.where
+      ].filter(Boolean);
       meta.textContent = parts.join(" · ");
       item.appendChild(meta);
 
@@ -250,40 +255,34 @@ function renderTalks(talks){
   render();
 }
 
-function renderTeaching(teach){
-  const cur = $("#teach-current");
-  const past = $("#teach-past");
-  cur.innerHTML = "";
-  past.innerHTML = "";
+function renderTeaching(teaching){
+  const current = document.getElementById("teaching-current-list");
+  const past = document.getElementById("teaching-past-list");
+  if(!current || !past) return;
 
-  const curItems = teach.current ?? [];
-  const pastItems = teach.past ?? [];
-
-  if(curItems.length === 0){
-    const li = document.createElement("li");
-    li.textContent = "—";
-    cur.appendChild(li);
-  }else{
-    curItems.forEach(t => {
+  const renderList = (ul, items) => {
+    ul.innerHTML = "";
+    if(!items || !items.length){
       const li = document.createElement("li");
-      const parts = [t.course, t.term, t.institution].filter(Boolean);
-      li.textContent = parts.join(" · ");
-      cur.appendChild(li);
-    });
-  }
-
-  if(pastItems.length === 0){
-    const li = document.createElement("li");
-    li.textContent = "—";
-    past.appendChild(li);
-  }else{
-    pastItems.forEach(t => {
+      li.textContent = "—";
+      li.className = "muted";
+      ul.appendChild(li);
+      return;
+    }
+    items.forEach((it) => {
       const li = document.createElement("li");
-      const parts = [t.course, t.term, t.institution].filter(Boolean);
-      li.textContent = parts.join(" · ");
-      past.appendChild(li);
+      const parts = [];
+      if(it.term) parts.push(it.term);
+      if(it.course) parts.push(it.course);
+      const meta = [it.role, it.institution].filter(Boolean).join(" · ");
+      if(meta) parts.push(meta);
+      li.textContent = parts.join(" — ");
+      ul.appendChild(li);
     });
-  }
+  };
+
+  renderList(current, teaching.current);
+  renderList(past, teaching.past);
 }
 
 async function main(){
@@ -300,7 +299,7 @@ async function main(){
     const teaching = await loadJSON("data/teaching.json");
     renderTeaching(teaching);
 
-    // Portrait
+    // Load portrait if present
     const imgPath = site.portrait ?? "assets/photo.jpg";
     const portrait = document.querySelector(".portrait");
     const img = new Image();
@@ -308,7 +307,9 @@ async function main(){
       portrait.innerHTML = "";
       portrait.appendChild(img);
     };
-    img.onerror = () => { /* keep placeholder */ };
+    img.onerror = () => {
+      // keep placeholder
+    };
     img.alt = `${site.name ?? "Portrait"} photo`;
     img.src = imgPath;
 

@@ -2,56 +2,51 @@
 
 This is a lightweight, modern academic homepage designed for GitHub Pages (or any static hosting).
 
-## What changed in this version
-- Navigation bar is at the very top and sticky.
-- Teaching is rendered from `data/teaching.json`.
-- Publications can be auto-updated from **Google Scholar** and **INSPIRE-HEP** via GitHub Actions.
-- Talks/Teaching can be re-generated from `assets/cv.pdf` (best-effort).
-
 ## Quick start (local preview)
-Because the page loads JSON via `fetch`, preview with a local server:
+Because the page loads JSON via `fetch`, you should preview with a local server (not by double-clicking the HTML file).
 
 ```bash
+cd rui-wen-academic-homepage
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Update content (manual)
-Edit:
-- `data/site.json`
-- `data/publications.json`
-- `data/talks.json`
-- `data/teaching.json`
+## Update content
+Edit these files:
+
+- `data/site.json` — name, affiliation, email, links, keywords, about text
+- `data/publications.json` — your publication list
+- `data/talks.json` — talks list
+- `data/teaching.json` — current/past teaching
 
 Optional:
-- Add portrait: `assets/photo.jpg`
-- Replace CV: `assets/cv.pdf`
+- Add a portrait at `assets/photo.jpg` (or set `portrait` in `data/site.json`)
+- Add your CV PDF at `assets/cv.pdf`
 
-## Auto-update publications (recommended)
-This repo includes a workflow: `.github/workflows/update_publications.yml`.
+## Auto-sync publications from Google Scholar + INSPIRE-HEP (optional)
+This repo includes a best-effort script that refreshes `data/publications.json`.
 
-1) In GitHub repo settings:
-- **Settings → Actions → General → Workflow permissions**
-- Set to **Read and write permissions**.
+1) Set your IDs in `data/site.json`:
+- `scholar_user` (Google Scholar user id)
+- `inspire_author_id` (INSPIRE author numeric id)
 
-2) Check/update your IDs in `data/sources.json`:
-- `google_scholar_user`: from your Scholar profile URL `...user=XXXX`
-- `inspire_author_id`: from your INSPIRE author page URL `.../authors/YYYY`
-
-3) Run manually once:
-- **Actions → Update publications and CV sections → Run workflow**
-
-It will also run weekly (every Monday).
-
-### Note on Google Scholar
-Google Scholar has no official public API and sometimes blocks automation. If Scholar blocks the workflow, the script keeps going (INSPIRE still works) and you can re-run later.
-
-## Regenerate talks/teaching from CV
-If you update `assets/cv.pdf`, you can run locally:
-
+2) Run locally:
 ```bash
-pip install -r requirements.txt
-python scripts/update_from_cv.py --cv assets/cv.pdf
+pip3 install -r scripts/requirements.txt
+python3 scripts/fetch_publications.py --scholar-user "<your_scholar_user>" --inspire-author-id "<your_inspire_author_id>"
 ```
 
-Then commit and push the updated JSON files.
+3) Optional GitHub Actions automation:
+- The workflow `.github/workflows/update-publications.yml` runs weekly and commits updated `data/publications.json`.
+- If you don't want automation, you can delete the workflow file.
+
+## Deploy on GitHub Pages
+1. Create a GitHub repository (e.g. `ruiwen` or `homepage`).
+2. Upload all files in this folder to the repo root.
+3. In GitHub: **Settings → Pages**
+   - Source: `Deploy from a branch`
+   - Branch: `main` / `(root)`
+4. Your site will be at `https://<username>.github.io/<repo>/` (or `https://<username>.github.io/` if the repo is named `<username>.github.io`).
+
+## Custom domain (optional)
+In **Settings → Pages**, set a custom domain and follow the DNS instructions GitHub provides.
