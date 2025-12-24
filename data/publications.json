@@ -1,108 +1,79 @@
 [
   {
-    "year": 2025,
-    "title": "Topological Holography for 2+1-D Gapped and Gapless Phases with Generalized Symmetries",
-    "authors": "Rui Wen",
-    "venue": "arXiv:2503.13685",
-    "links": {
-      "arXiv": "https://arxiv.org/abs/2503.13685",
-      "PDF": "https://arxiv.org/pdf/2503.13685"
-    }
-  },
-  {
-    "year": 2025,
-    "title": "Classification of gapless symmetry protected phases via topological holography",
-    "authors": "Rui Wen, Andrew C. Potter",
-    "venue": "Physical Review B 111, 115161 (2025)",
-    "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevB.111.115161",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevB.111.115161",
-      "arXiv": "https://arxiv.org/abs/2311.00050"
-    }
-  },
-  {
     "year": 2024,
     "title": "String condensation and topological holography for 2+1D gapless SPT",
     "authors": "Rui Wen",
     "venue": "arXiv:2408.05801",
     "links": {
-      "arXiv": "https://arxiv.org/abs/2408.05801",
-      "PDF": "https://arxiv.org/pdf/2408.05801"
-    }
-  },
-  {
-    "year": 2024,
-    "title": "Universal structure of measurement-induced information in many-body ground states",
-    "authors": "Zihan Cheng, Rui Wen, Sarang Gopalakrishnan, Romain Vasseur, Andrew C. Potter",
-    "venue": "Physical Review B 109, 195128 (2024)",
-    "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevB.109.195128",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevB.109.195128",
-      "arXiv": "https://arxiv.org/abs/2312.11615"
-    }
-  },
-  {
-    "year": 2024,
-    "title": "Topological holography for fermions",
-    "authors": "Rui Wen, Weicheng Ye, Andrew C. Potter",
-    "venue": "arXiv:2404.19004",
-    "links": {
-      "arXiv": "https://arxiv.org/abs/2404.19004",
-      "PDF": "https://arxiv.org/pdf/2404.19004"
+      "arXiv": "https://arxiv.org/abs/2408.05801"
     }
   },
   {
     "year": 2024,
     "title": "Cheshire qudits from fractional quantum spin Hall states in twisted MoTe2",
-    "authors": "Rui Wen, Andrew C. Potter",
+    "authors": "Rui Wen; Andrew C. Potter",
     "venue": "arXiv:2407.03401",
     "links": {
-      "arXiv": "https://arxiv.org/abs/2407.03401",
-      "PDF": "https://arxiv.org/pdf/2407.03401"
+      "arXiv": "https://arxiv.org/abs/2407.03401"
     }
   },
   {
-    "year": 2023,
-    "title": "Bulk-boundary correspondence for intrinsically gapless symmetry-protected topological phases from group cohomology",
-    "authors": "Rui Wen, Andrew C. Potter",
-    "venue": "Physical Review B 107, 245127 (2023)",
+    "year": 2024,
+    "title": "Topological holography for fermions",
+    "authors": "Rui Wen; Weicheng Ye; Andrew C. Potter",
+    "venue": "arXiv:2404.19004",
     "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevB.107.245127",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevB.107.245127",
-      "arXiv": "https://arxiv.org/abs/2204.03131"
+      "arXiv": "https://arxiv.org/abs/2404.19004"
+    }
+  },
+  {
+    "year": 2024,
+    "title": "Universal structure of measurement-induced information in many-body ground states",
+    "authors": "Zihan Cheng; Rui Wen; Sarang Gopalakrishnan; Romain Vasseur; Andrew C. Potter",
+    "venue": "Phys. Rev. B 109 (2024) 195128",
+    "links": {
+      "DOI": ""
+    }
+  },
+  {
+    "year": 2025,
+    "title": "Classification of 1+1D gapless symmetry protected phases via topological holography",
+    "authors": "Rui Wen; Andrew C. Potter",
+    "venue": "Phys. Rev. B 111 (2025) 115161",
+    "links": {
+      "DOI": "https://doi.org/10.1103/PhysRevB.111.115161"
     }
   },
   {
     "year": 2023,
     "title": "Floquet codes and phases in twist-defect networks",
-    "authors": "Joseph Sullivan, Rui Wen, Andrew C. Potter",
-    "venue": "Physical Review B 108, 195134 (2023)",
+    "authors": "Joseph Sullivan; Rui Wen; Andrew C. Potter",
+    "venue": "Phys. Rev. B 108 (2023) 195134",
     "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevB.108.195134",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevB.108.195134",
-      "arXiv": "https://arxiv.org/abs/2303.17664"
+      "DOI": ""
+    }
+  },
+  {
+    "year": 2023,
+    "title": "Bulk-boundary correspondence for intrinsically gapless symmetry-protected topological phases from group cohomology",
+    "authors": "Rui Wen; Andrew C. Potter",
+    "venue": "Phys. Rev. B 107 (2023) 245127",
+    "links": {
+      "arXiv": "https://arxiv.org/abs/2208.09001"
     }
   },
   {
     "year": 2023,
     "title": "Exact quench dynamics from algebraic geometry",
-    "authors": "Yunfeng Jiang, Rui Wen, Yang Zhang",
-    "venue": "Physical Review E 108, 024128 (2023)",
-    "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevE.108.024128",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevE.108.024128",
-      "arXiv": "https://arxiv.org/abs/2109.10568"
-    }
+    "authors": "Yunfeng Jiang; Rui Wen; Yang Zhang",
+    "venue": "Phys. Rev. E 108 (2023) 024128",
+    "links": {}
   },
   {
     "year": 2019,
-    "title": "Holographic (a,c)-charges and their universal relation in d=6 from massless higher-order gravities",
-    "authors": "H. Lü, Rui Wen",
-    "venue": "Physical Review D 99, 126003 (2019)",
-    "links": {
-      "DOI": "https://doi.org/10.1103/PhysRevD.99.126003",
-      "APS": "https://link.aps.org/doi/10.1103/PhysRevD.99.126003",
-      "arXiv": "https://arxiv.org/abs/1901.11037"
-    }
+    "title": "Holographic (a, c) charges and their universal relation in d = 6 from massless higher-order gravities",
+    "authors": "H. Lü; Rui Wen",
+    "venue": "Phys. Rev. D 99 (2019) 126003",
+    "links": {}
   }
 ]

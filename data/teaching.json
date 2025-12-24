@@ -2,22 +2,22 @@
   "current": [],
   "past": [
     {
-      "term": "Spring 2023",
-      "institution": "University of British Columbia",
+      "term": "Spring 2022",
       "role": "Undergraduate Teaching Assistant",
-      "course": "PHYS 403: Statistical Mechanics"
+      "course": "PHYS 118: Electricity, Light and Radiation",
+      "institution": "University of British Columbia"
     },
     {
       "term": "Fall 2022",
-      "institution": "University of British Columbia",
       "role": "Undergraduate Teaching Assistant",
-      "course": "PHYS 304: Quantum Mechanics"
+      "course": "PHYS 304: Quantum Mechanics",
+      "institution": "University of British Columbia"
     },
     {
-      "term": "Spring 2022",
-      "institution": "University of British Columbia",
+      "term": "Spring 2023",
       "role": "Undergraduate Teaching Assistant",
-      "course": "PHYS 118: Electricity, Light and Radiation"
+      "course": "PHYS 403: Statistical Mechanics",
+      "institution": "University of British Columbia"
     }
   ]
 }
