@@ -35,7 +35,9 @@ function setText(id, text){
 }
 
 function renderSite(site){
-  setText("#site-name", site.name ?? "Name");
+  const nameValue = site.name ?? "Name";
+  const nameEl = $("#site-name");
+  if(nameEl){ nameEl.textContent = nameValue; nameEl.setAttribute("data-text", nameValue); }
   setText("#name-inline", site.name ?? "Name");
   setText("#year", new Date().getFullYear());
 
