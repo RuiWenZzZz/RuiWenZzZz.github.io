@@ -196,6 +196,94 @@ function renderPublications(pubs){
   render();
 }
 
+
+function renderNotes(notes){
+  notes.sort((a,b) => normalize(b.date).localeCompare(normalize(a.date)));
+
+  const list = $("#note-list");
+  const search = $("#note-search");
+  const tagSel = $("#note-tag");
+
+  // Populate tag filter (unique tags across notes)
+  const tags = [...new Set((notes || []).flatMap(n => (n.tags ?? []).map(t => String(t))))].sort((a,b) => a.localeCompare(b));
+  if(tagSel){
+    // keep the first option "All tags"
+    while(tagSel.options.length > 1) tagSel.remove(1);
+    tags.forEach(t => {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      tagSel.appendChild(opt);
+    });
+  }
+
+  function matches(n, q, tag){
+    const hay = [n.title, n.summary, (n.tags ?? []).join(" "), n.date].map(x => normalize(x)).join(" ");
+    const okQ = !q || hay.includes(q);
+    const okT = !tag || (n.tags ?? []).map(String).includes(tag);
+    return okQ && okT;
+  }
+
+  function render(){
+    if(!list) return;
+    const q = normalize(search?.value);
+    const tag = tagSel?.value ?? "";
+    list.innerHTML = "";
+
+    const filtered = (notes || []).filter(n => matches(n, q, tag));
+    if(filtered.length === 0){
+      const empty = document.createElement("p");
+      empty.className = "prose";
+      empty.textContent = (notes && notes.length) ? "No matches." : "No notes yet — add entries to data/notes.json.";
+      list.appendChild(empty);
+      return;
+    }
+
+    filtered.forEach(n => {
+      const item = document.createElement("article");
+      item.className = "item";
+
+      const h = document.createElement("h3");
+      h.className = "item-title";
+      h.textContent = n.title ?? "(untitled)";
+      item.appendChild(h);
+
+      const meta = document.createElement("p");
+      meta.className = "item-meta";
+      const parts = [n.date, (n.tags && n.tags.length) ? n.tags.join(", ") : null].filter(Boolean);
+      meta.textContent = parts.join(" · ");
+      item.appendChild(meta);
+
+      if(n.summary){
+        const sum = document.createElement("p");
+        sum.className = "prose";
+        sum.textContent = n.summary;
+        item.appendChild(sum);
+      }
+
+      const links = document.createElement("div");
+      links.className = "item-links";
+      const lm = n.links ?? {};
+      if(n.file){
+        // convenience: link directly to a local file (e.g. assets/notes/my_note.pdf)
+        links.appendChild(buildPill("PDF", n.file));
+      }
+      Object.entries(lm).forEach(([name, href]) => {
+        if(!href) return;
+        links.appendChild(buildPill(name, href));
+      });
+      if(links.childElementCount) item.appendChild(links);
+
+      list.appendChild(item);
+    });
+  }
+
+  search?.addEventListener("input", render);
+  tagSel?.addEventListener("change", render);
+  render();
+}
+
+
 function renderTalks(talks){
   talks.sort((a,b) => normalize(b.date).localeCompare(normalize(a.date)));
 
@@ -295,6 +383,9 @@ async function main(){
 
     const pubs = await loadJSON("data/publications.json");
     renderPublications(pubs);
+
+    const notes = await loadJSON("data/notes.json");
+    renderNotes(notes);
 
     const talks = await loadJSON("data/talks.json");
     renderTalks(talks);

@@ -19,6 +19,7 @@
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
+      <a href="#notes">Notes</a>
       <a href="#talks">Talks</a>
       <a href="#teaching">Teaching</a>
       <a href="#contact">Contact</a>
@@ -84,6 +85,26 @@
        
       </p>
     </section>
+
+    
+    <section id="notes" class="section">
+      <div class="section-head">
+        <h2>Notes</h2>
+        <div class="controls" aria-label="Notes controls">
+          <input id="note-search" type="search" placeholder="Search notes…" autocomplete="off" />
+          <select id="note-tag" aria-label="Filter by tag">
+            <option value="">All tags</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="prose">
+        Personal notes and short write-ups. Add entries in <code>data/notes.json</code> (and upload PDFs to <code>assets/notes/</code> if you want).
+      </p>
+
+      <div class="list" id="note-list" aria-live="polite"></div>
+    </section>
+
 
     <section id="talks" class="section">
       <div class="section-head">

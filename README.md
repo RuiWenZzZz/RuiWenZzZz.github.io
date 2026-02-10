@@ -55,3 +55,26 @@ python scripts/update_from_cv.py --cv assets/cv.pdf
 ```
 
 Then commit and push the updated JSON files.
+
+
+## Notes
+Add notes in `data/notes.json` (a list). Each note can have:
+- `date` (YYYY-MM-DD)
+- `title`
+- `summary` (optional)
+- `tags` (optional list)
+- `file` (optional local path like `assets/notes/my_note.pdf`)
+- `links` (optional object of button-name → URL)
+
+Example entry:
+
+```json
+{
+  "date": "2026-02-10",
+  "title": "My note title",
+  "summary": "A short description.",
+  "tags": ["TQFT", "symmetry"],
+  "file": "assets/notes/my_note.pdf",
+  "links": {"GitHub": "https://..."}
+}
+```
